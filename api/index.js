@@ -41,8 +41,17 @@ module.exports = async (req, res) => {
             const inv = await resInv.json();
 
             if (inv && Array.isArray(inv) && inv.length > 0) {
-                // Limitar la lista a los últimos 10 Pokémon para no pasar de 400 caracteres
-                const lista = [...new Set(inv.map(p => `${p.name} (${p.id})`))].slice(-10).join(", ");
+                // Contar cuántos hay de cada uno
+                const conteo = {};
+                inv.forEach(p => {
+                    conteo[p.name] = (conteo[p.name] || 0) + 1;
+                });
+                
+                // Formatear la lista (ej: 2x Gengar, 1x Pikachu)
+                const lista = Object.keys(conteo)
+                    .map(name => `${conteo[name]}x ${name}`)
+                    .join(", ");
+                    
                 return res.status(200).send(`🎒 @${user}: ${lista}`);
             }
             return res.status(200).send(`🎒 @${user} inventario vacío. Usa !gacha`);
