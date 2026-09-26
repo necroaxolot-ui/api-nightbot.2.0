@@ -16,8 +16,27 @@ module.exports = async (req, res) => {
 
     try {
         if (action === "gacha") {
-            const pokemon = POKEMON_POOL[Math.floor(Math.random() * POKEMON_POOL.length)];
+            // 1. Revisar cuántos puntos tiene el usuario en Firebase
+            const resPts = await fetch(`${baseUserUrl}/points.json`);
+            let pts = await resPts.json();
 
+            // Si es la primera vez que juega, le regalamos 500 puntos de bienvenida
+            if (pts === null) pts = 500; 
+
+            // 2. Comprobar si le alcanza
+            if (pts < 200) {
+                return res.status(200).send(`❌ @${user}, el gacha cuesta 200 pts (Solo tienes ${pts} pts).`);
+            }
+
+            // 3. Restarle los 200 puntos y guardar en la base de datos
+            pts -= 200;
+            await fetch(`${baseUserUrl}/points.json`, {
+                method: 'PUT',
+                body: JSON.stringify(pts)
+            });
+
+            // 4. Lógica del Gacha (elegir Pokémon y guardarlo)
+            const pokemon = POKEMON_POOL[Math.floor(Math.random() * POKEMON_POOL.length)];
             const resInv = await fetch(`${baseUserUrl}/inventory.json`);
             let inv = (await resInv.json()) || [];
             if (!Array.isArray(inv)) inv = [];
@@ -28,12 +47,13 @@ module.exports = async (req, res) => {
                 body: JSON.stringify(inv)
             });
 
+            // 5. Avisar a la extensión visual para que salga el dibujo
             await fetch(`${FIREBASE_URL}/last_gacha_event.json`, {
                 method: 'PUT',
                 body: JSON.stringify({ username: user, pokemon, timestamp: Date.now() })
             });
 
-            return res.status(200).send(`🎉 @${user} obtuvo a ${pokemon.name} [ID:${pokemon.id}]`);
+            return res.status(200).send(`🎉 @${user} gastó 200 pts y obtuvo a ${pokemon.name}! (Te quedan ${pts} pts)`);
         }
 
         if (action === "inventario") {
