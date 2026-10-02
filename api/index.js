@@ -1,10 +1,10 @@
 const FIREBASE_URL = "https://kamis-57511-default-rtdb.firebaseio.com";
 
 const POKEMON_POOL = [
-    { id: 25, name: "Pikachu", rarity: "Común" },
-    { id: 4, name: "Charmander", rarity: "Común" },
-    { id: 94, name: "Gengar", rarity: "Raro" },
-    { id: 150, name: "Mewtwo", rarity: "Legendario" }
+    { id: 9, name: "Creepeep", rarity: "Común" },
+    { id: 10, name: "Dreadcroak ", rarity: "Común" },
+    { id: 11, name: "Cenikite", rarity: "Raro" },
+    { id: 12, name: "Incenix", rarity: "Raro" },
 ];
 
 module.exports = async (req, res) => {
