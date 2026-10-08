@@ -5,6 +5,12 @@ const POKEMON_POOL = [
     { id: 10, name: "Dreadcroak ", rarity: "Común" },
     { id: 11, name: "Cenikite", rarity: "Raro" },
     { id: 12, name: "Incenix", rarity: "Raro" },
+    { id: 13, name: "Voltiper", rarity: "Raro" },
+    { id: 14, name: "Rayper", rarity: "Raro" },
+    { id: 15, name: "Griefsaur", rarity: "Raro" },
+    { id: 16, name: "Whirlpurr", rarity: "Común" },
+    { id: 17, name: "Lochlynx", rarity: "Raro" },
+    { id: 18, name: "Tsunaroar", rarity: "Épico" }
 ];
 
 module.exports = async (req, res) => {
