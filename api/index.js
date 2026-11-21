@@ -1,16 +1,24 @@
 const FIREBASE_URL = "https://kamis-57511-default-rtdb.firebaseio.com";
 
 const POKEMON_POOL = [
-    { id: 9, name: "Creepeep", rarity: "Común" },
-    { id: 10, name: "Dreadcroak ", rarity: "Común" },
-    { id: 11, name: "Cenikite", rarity: "Raro" },
-    { id: 12, name: "Incenix", rarity: "Raro" },
-    { id: 13, name: "Voltiper", rarity: "Raro" },
-    { id: 14, name: "Rayper", rarity: "Raro" },
-    { id: 15, name: "Griefsaur", rarity: "Raro" },
-    { id: 16, name: "Whirlpurr", rarity: "Común" },
-    { id: 17, name: "Lochlynx", rarity: "Raro" },
-    { id: 18, name: "Tsunaroar", rarity: "Épico" }
+    { id: 1, name: "Fangkid", rarity: "Raro" },
+    //{ id: 2, name: "Sheriffang", rarity: "Épico" },
+    { id: 3, name: "Drakito", rarity: "Raro" },
+    //{ id: 4, name: "Dreadragon", rarity: "Épico" },
+    //{ id: 5, name: "Sproutlet", rarity: "Raro" },
+    //{ id: 6, name: "Mantiorchid", rarity: "Épico" },
+    //{ id: 7, name: "4ª", rarity: "Raro" },
+    //{ id: 8, name: "4ª", rarity: "Épico" },
+    { id: 9, name: "Whirlpurr", rarity: "Rero" },
+    //{ id: 10, name: "Tsunaroar", rarity: "Épico" }
+    //{ id: 11, name: "Lochlynx", rarity: "Raro" },
+    { id: 16, name: "Creepeep", rarity: "Común" },
+    //{ id: 17, name: "Dreadcroak ", rarity: "Común" },
+    { id: 18, name: "Cenikite", rarity: "Común" },
+    { id: 19, name: "Incenix", rarity: "Raro" },
+    //{ id: 20, name: "Voltiper", rarity: "Raro" },
+    //{ id: 21, name: "Rayper", rarity: "Raro" },
+    { id: 22, name: "Griefsaur", rarity: "Raro" },
 ];
 
 module.exports = async (req, res) => {
