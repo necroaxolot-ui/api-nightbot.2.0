@@ -3,7 +3,7 @@ const FIREBASE_URL = "https://kamis-57511-default-rtdb.firebaseio.com";
 const POKEMON_POOL = [
     { id: 1, name: "Fangkid", rarity: "Raro" },
     //{ id: 2, name: "Sheriffang", rarity: "Épico" },
-    { id: 3, name: "Drakito", rarity: "Raro" },
+    //{ id: 3, name: "Drakito", rarity: "Raro" },
     //{ id: 4, name: "Dreadragon", rarity: "Épico" },
     //{ id: 5, name: "Sproutlet", rarity: "Raro" },
     //{ id: 6, name: "Mantiorchid", rarity: "Épico" },
